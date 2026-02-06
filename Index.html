@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NXTGEN BJJ - Israel's Premier Academy</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts (Heebo for modern Hebrew look) -->
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Heebo', sans-serif;
+            background-color: black;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* Custom Animations */
+        @keyframes slowZoom {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+
+        .animate-slowZoom {
+            animation: slowZoom 20s infinite alternate;
+        }
+
+        /* Text Stroke Effect */
+        .text-stroke {
+            -webkit-text-stroke: 1px white;
+            color: transparent;
+        }
+
+        /* Scroll Reveal Utility Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Selection Color */
+        ::selection {
+            background-color: white;
+            color: black;
+        }
+    </style>
+</head>
+<body class="selection:bg-white selection:text-black">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-500 py-6">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            
+            <!-- Logo -->
+            <a href="#hero" class="text-2xl md:text-3xl font-black tracking-tighter cursor-pointer z-50 flex items-center gap-1 group">
+                .NXTGEN<span class="text-gray-500 group-hover:text-white transition-colors"></span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-10 text-sm font-bold tracking-wide">
+                <a href="#about" class="relative hover:text-gray-300 transition-colors uppercase py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 hover:after:w-full">האקדמיה</a>
+                <a href="#team" class="relative hover:text-gray-300 transition-colors uppercase py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 hover:after:w-full">הנבחרת</a>
+                <a href="#schedule" class="relative hover:text-gray-300 transition-colors uppercase py-2 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-white after:transition-all after:duration-300 hover:after:w-full">מערכת שעות</a>
+                <a href="#contact" class="bg-white text-black px-8 py-3 hover:bg-gray-200 hover:scale-105 transition-all font-black uppercase tracking-wider skew-x-[-10deg]">
+                    <span class="skew-x-[10deg] inline-block">תיאום אימון</span>
+                </a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden z-50 text-white p-2" id="mobileMenuBtn">
+                <i data-lucide="menu" id="menuIcon"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="fixed inset-0 bg-black z-40 flex flex-col justify-center items-center gap-8 text-3xl font-black transition-all duration-500 opacity-0 invisible pointer-events-none">
+            <a href="#about" class="mobile-link hover:text-gray-500 transition-colors">האקדמיה</a>
+            <a href="#team" class="mobile-link hover:text-gray-500 transition-colors">הנבחרת</a>
+            <a href="#schedule" class="mobile-link hover:text-gray-500 transition-colors">מערכת שעות</a>
+            <a href="#contact" class="mobile-link border-b-4 border-white pb-2 hover:border-gray-500 transition-colors">תיאום אימון</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img 
+                src="Gym.jpeg?q=80&w=2069&auto=format&fit=crop" 
+                alt="BJJ Training" 
+                class="w-full h-full object-cover opacity-60 grayscale animate-slowZoom"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/30"></div>
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20 mix-blend-overlay"></div>
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10 md:mt-20">
+            <div class="reveal delay-[200ms]">
+                <h2 class="text-xs md:text-lg font-bold tracking-[0.4em] uppercase mb-6 text-gray-300 border-b border-white/20 inline-block pb-2">
+                    Dedication | Hard Work | Tenacity
+                </h2>
+            </div>
+            
+            <div class="reveal delay-[400ms]">
+                <h1 class="text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter mb-6 leading-[0.9]">
+                    .NXTGEN<span class="text-transparent bg-clip-text bg-gradient-to-b from-white to-gray-600"></span>
+                </h1>
+            </div>
+            
+            <div class="reveal delay-[600ms]">
+                <p class="text-lg md:text-2xl font-light text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+                    הבית של אלופי העולם ואלופי אירופה.
+                    <br/>
+                    <span class="font-bold text-white">בהובלת ויקי דבוש.</span>
+                </p>
+            </div>
+
+            <div class="reveal delay-[800ms] flex flex-col md:flex-row gap-4 justify-center items-center">
+                <a href="#contact" class="w-full md:w-auto bg-white text-black px-10 py-4 text-lg font-bold uppercase tracking-wider hover:bg-gray-200 hover:-translate-y-1 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                    התחילו להתאמן
+                </a>
+                <a href="#team" class="w-full md:w-auto group flex items-center justify-center gap-2 border border-white/30 backdrop-blur-sm text-white px-10 py-4 text-lg font-bold uppercase tracking-wider hover:bg-white/10 transition-all">
+                    הכירו את הצוות <i data-lucide="arrow-left" class="group-hover:-translate-x-1 transition-transform"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50">
+            <i data-lucide="chevron-down" width="32" height="32"></i>
+        </div>
+    </section>
+
+    <!-- Stats Strip -->
+    <div class="bg-neutral-900/80 backdrop-blur-sm border-y border-white/5 py-8 md:py-12 relative z-20">
+        <div class="container mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+            <!-- Stat 1 -->
+            <div class="reveal space-y-2 group cursor-default">
+                <i data-lucide="trophy" class="w-6 h-6 md:w-8 md:h-8 mx-auto text-white/50 group-hover:text-white transition-colors duration-500"></i>
+                <h3 class="text-2xl md:text-4xl font-black">12+</h3>
+                <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em]">אלופי עולם</p>
+            </div>
+            <!-- Stat 2 -->
+            <div class="reveal delay-[100ms] space-y-2 group cursor-default">
+                <i data-lucide="users" class="w-6 h-6 md:w-8 md:h-8 mx-auto text-white/50 group-hover:text-white transition-colors duration-500"></i>
+                <h3 class="text-2xl md:text-4xl font-black">200+</h3>
+                <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em]">מתאמנים פעילים</p>
+            </div>
+            <!-- Stat 3 -->
+            <div class="reveal delay-[200ms] space-y-2 group cursor-default">
+                <i data-lucide="star" class="w-6 h-6 md:w-8 md:h-8 mx-auto text-white/50 group-hover:text-white transition-colors duration-500"></i>
+                <h3 class="text-2xl md:text-4xl font-black">100%</h3>
+                <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em]">מקצוענות</p>
+            </div>
+            <!-- Stat 4 -->
+            <div class="reveal delay-[300ms] space-y-2 group cursor-default">
+                <i data-lucide="map-pin" class="w-6 h-6 md:w-8 md:h-8 mx-auto text-white/50 group-hover:text-white transition-colors duration-500"></i>
+                <h3 class="text-2xl md:text-4xl font-black">TOP</h3>
+                <p class="text-[10px] md:text-xs text-gray-400 uppercase tracking-[0.2em]">מתקן בינלאומי</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 md:py-32 bg-black relative">
+        <div class="container mx-auto px-6 flex flex-col md:flex-row items-center gap-12 md:gap-20">
+            <div class="w-full md:w-1/2 relative group reveal">
+                 <div class="absolute -inset-4 bg-gradient-to-r from-gray-800 to-gray-900 rounded-lg blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
+                 <div class="relative">
+                    <img 
+                        src="https://images.unsplash.com/photo-1555597673-b21d5c935865?q=80&w=2072&auto=format&fit=crop" 
+                        alt="NXTGEN Facility" 
+                        class="w-full h-auto grayscale contrast-125 brightness-90 shadow-2xl border border-white/10"
+                    />
+                 </div>
+            </div>
+            <div class="w-full md:w-1/2 space-y-8">
+                <div class="reveal delay-[200ms]">
+                    <h2 class="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+                        יותר ממכון.<br/>
+                        <span class="text-gray-600">זו מורשת.</span>
+                    </h2>
+                </div>
+                <div class="reveal delay-[300ms]">
+                    <div class="h-1 w-24 bg-white mb-8"></div>
+                    <p class="text-lg md:text-xl text-gray-400 leading-relaxed font-light text-justify pl-4">
+                        NXTGEN הוקם מתוך חזון אחד ברור: לייצר את הלוחמים הטובים ביותר בישראל בסביבה שאין שנייה לה. המכון שלנו מאובזר בציוד המתקדם בעולם, מזרנים אולימפיים וחלל מעוצב בקפידה.
+                    </p>
+                </div>
+                <div class="reveal delay-[400ms]">
+                    <p class="text-lg md:text-xl text-gray-400 leading-relaxed font-light text-justify pl-4">
+                        אנחנו לא מתפשרים על איכות. לא באימון, לא במתקן, ולא בקהילה שלנו. כאן מתאמנים אלופי אירופה ואלופי עולם, וזו הרמה שאנחנו דורשים מכל מי שעולה על המזרן.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Head Coach Section -->
+    <section id="team" class="py-20 md:py-32 bg-neutral-950 border-t border-white/5 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-white/5 to-transparent pointer-events-none"></div>
+        <div class="container mx-auto px-6">
+            <div class="reveal">
+                <div class="flex flex-col md:flex-row items-end gap-8 mb-16">
+                    <h2 class="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-none">
+                        המאמן הראשי<span class="text-indigo-500">.</span>
+                    </h2>
+                    <div class="h-px bg-white/20 flex-grow mb-4 hidden md:block"></div>
+                    <p class="text-gray-400 uppercase tracking-widest text-sm md:text-base mb-2">Head Coach</p>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                 <div class="reveal order-2 md:order-1 space-y-6">
+                    <h3 class="text-4xl md:text-5xl font-bold">ויקי דבוש</h3>
+                    <p class="text-xl text-gray-400 leading-relaxed">
+                        מהדמויות המובילות והמשפיעות בעולם הג'יו-ג'יטסו בישראל. ויקי גידל וטיפח דורות של לוחמים, ביניהם אלופי עולם ואלופי אירופה.
+                    </p>
+                    <ul class="space-y-4 mt-8 text-gray-300">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="trophy" size="20" class="text-white"></i>
+                            <span>מייצר אלופים ברמה בינלאומית</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="star" size="20" class="text-white"></i>
+                            <span>שיטת אימון ייחודית ומתקדמת</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="users" size="20" class="text-white"></i>
+                            <span>מנטור לדרך חיים ומצוינות</span>
+                        </li>
+                    </ul>
+                 </div>
+                 <div class="reveal delay-[200ms] order-1 md:order-2 relative">
+                    <!-- Placeholder for Viki's Image -->
+                    <div class="aspect-[3/4] bg-neutral-900 border border-white/10 relative overflow-hidden group">
+                        <img 
+                            src="https://images.unsplash.com/photo-1595078475328-1ab05d0a6a0e?q=80&w=2000&auto=format&fit=crop" 
+                            alt="Viki Dabush" 
+                            class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                        />
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-6">
+                            <p class="text-white font-black text-xl tracking-widest">VIKI DABUSH</p>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="py-24 bg-black border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-black uppercase tracking-tight mb-4">תוכניות אימון</h2>
+                <p class="text-gray-500">מותאם לכל הרמות. מכוון למצוינות.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Program 1: NO GI -->
+                <div class="reveal group relative p-8 border border-white/10 bg-neutral-950 text-white hover:border-white transition-all duration-500 cursor-pointer h-full flex flex-col">
+                    <h3 class="text-2xl font-bold mb-2 uppercase group-hover:tracking-wider transition-all">NO GI</h3>
+                    <p class="text-gray-400 text-sm mb-6 font-medium">גראפלינג ללא חליפה</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mt-auto">
+                        התמחות בטכניקות מתקדמות, שליטה בקרקע והכנעות ללא שימוש בחליפה. אימון דינאמי ומהיר.
+                    </p>
+                </div>
+
+                <!-- Program 2: GI (Highlighted) -->
+                <div class="reveal delay-[150ms] group relative p-8 border border-transparent bg-white text-black transform md:-translate-y-4 shadow-[0_0_30px_rgba(255,255,255,0.1)] transition-all duration-500 cursor-pointer h-full flex flex-col">
+                    <div class="absolute top-0 right-0 bg-black text-white text-xs font-bold px-3 py-1 uppercase">מומלץ</div>
+                    <h3 class="text-2xl font-bold mb-2 uppercase group-hover:tracking-wider transition-all">BJJ (GI)</h3>
+                    <p class="text-gray-600 text-sm mb-6 font-medium">ג'יו-ג'יטסו ברזילאי מסורתי</p>
+                    <p class="text-gray-800 text-sm leading-relaxed mt-auto">
+                        הבסיס לכל לוחם. עבודה טכנית עם חליפה, דגש על מנופים, חניקות ופוזיציות שליטה.
+                    </p>
+                </div>
+
+                <!-- Program 3: Kids -->
+                <div class="reveal delay-[300ms] group relative p-8 border border-white/10 bg-neutral-950 text-white hover:border-white transition-all duration-500 cursor-pointer h-full flex flex-col">
+                    <h3 class="text-2xl font-bold mb-2 uppercase group-hover:tracking-wider transition-all">ילדים ונוער</h3>
+                    <p class="text-gray-400 text-sm mb-6 font-medium">דור העתיד</p>
+                    <p class="text-gray-500 text-sm leading-relaxed mt-auto">
+                        בניית ביטחון עצמי, משמעת ויכולות פיזיות מגיל צעיר. המקום שבו אלופים גדלים.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Schedule Teaser -->
+    <section id="schedule" class="py-24 bg-neutral-950 relative overflow-hidden">
+         <div class="absolute -right-20 top-0 text-[15rem] md:text-[20rem] font-black text-white/5 pointer-events-none select-none">
+             BJJ
+         </div>
+
+         <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+            <div class="reveal w-full md:w-1/2">
+                <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-6">הלו"ז שלנו</h2>
+                <p class="text-gray-400 text-lg mb-8 leading-relaxed">
+                    מערכת שעות גמישה המאפשרת אימונים בבוקר ובערב, לאורך כל השבוע. 
+                    <br/>כולל אימוני יסודות למתחילים ואימוני נבחרת למתחרים.
+                </p>
+                <a href="#contact" class="inline-flex items-center gap-3 text-white font-bold uppercase tracking-wider border-b border-white pb-2 hover:gap-6 hover:text-gray-300 transition-all">
+                    לתיאום אימון ניסיון <span class="text-xl">→</span>
+                </a>
+            </div>
+            
+            <div class="reveal delay-[200ms] w-full md:w-1/2 bg-neutral-900 p-8 border border-white/10 shadow-2xl">
+                <div class="grid grid-cols-4 gap-2 text-center text-xs font-bold text-gray-500 mb-6 border-b border-white/10 pb-4">
+                    <div>ראשון</div>
+                    <div>שני</div>
+                    <div>רביעי</div>
+                    <div>חמישי</div>
+                </div>
+                <div class="space-y-4">
+                    <div class="flex justify-between items-center bg-black p-4 border-r-4 border-white hover:bg-neutral-800 transition-colors cursor-default">
+                        <span class="text-white font-mono font-bold text-lg">19:30</span>
+                        <span class="uppercase tracking-widest text-gray-400 text-sm">BJJ בוגרים</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-black p-4 border-r-4 border-white hover:bg-neutral-800 transition-colors cursor-default">
+                        <span class="text-white font-mono font-bold text-lg">20:30</span>
+                        <span class="uppercase tracking-widest text-gray-400 text-sm">NO GI מתקדמים</span>
+                    </div>
+                    <div class="flex justify-between items-center bg-black p-4 border-r-4 border-white hover:bg-neutral-800 transition-colors cursor-default">
+                        <span class="text-white font-mono font-bold text-lg">08:30</span>
+                        <span class="uppercase tracking-widest text-gray-400 text-sm">בוקר לוחמים</span>
+                    </div>
+                </div>
+            </div>
+         </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-black border-t border-white/5">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-16">
+                <div class="reveal">
+                    <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-4 leading-none">
+                        הצטרפו<br/><span class="text-stroke opacity-50">לנבחרת</span>
+                    </h2>
+                    <p class="text-gray-400 mb-10 text-lg max-w-md">
+                        הצעד הראשון לאליפות מתחיל כאן. השאירו פרטים ונחזור אליכם בהקדם.
+                    </p>
+                    
+                    <div class="space-y-8 text-lg">
+                        <!-- Location -->
+                        <div class="flex items-start gap-6 group">
+                            <div class="bg-white/10 p-3 rounded-full group-hover:bg-white group-hover:text-black transition-colors">
+                                <i data-lucide="map-pin" size="24"></i>
+                            </div>
+                            <div>
+                                <span class="block text-white font-bold mb-1">המיקום שלנו</span>
+                                <span class="text-gray-400 block">רופין 30, כפר סבא</span>
+                                <span class="text-gray-500 text-sm block mt-1">משרת גם את תושבי רעננה, הוד השרון, נתניה ותל אביב</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Phone -->
+                        <div class="flex items-start gap-6 group">
+                            <div class="bg-white/10 p-3 rounded-full group-hover:bg-white group-hover:text-black transition-colors">
+                                <i data-lucide="phone" size="24"></i>
+                            </div>
+                             <div>
+                                <span class="block text-white font-bold mb-1">טלפון</span>
+                                <span class="text-gray-400 dir-ltr">050-XXXXXXX</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/nxtgen.il/?hl=en" target="_blank" rel="noreferrer" class="flex items-start gap-6 group cursor-pointer">
+                            <div class="bg-white/10 p-3 rounded-full group-hover:bg-white group-hover:text-black transition-colors">
+                                <i data-lucide="instagram" size="24"></i>
+                            </div>
+                            <div>
+                                <span class="block text-white font-bold mb-1">Instagram</span>
+                                <span class="text-gray-400 group-hover:text-white transition-colors">@nxtgen.il</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="reveal delay-[200ms] bg-neutral-900 p-8 md:p-10 border border-white/10 relative">
+                    <div class="absolute -top-4 -left-4 w-20 h-20 border-t-2 border-l-2 border-white/30 hidden md:block"></div>
+                    <form class="space-y-6" onsubmit="event.preventDefault(); alert('הפרטים נשלחו בהצלחה!');">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">שם מלא</label>
+                            <input type="text" class="w-full bg-black border border-white/10 p-4 text-white focus:border-white focus:outline-none transition-all placeholder:text-gray-700" placeholder="השם שלך" />
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">טלפון</label>
+                            <input type="tel" class="w-full bg-black border border-white/10 p-4 text-white focus:border-white focus:outline-none transition-all placeholder:text-gray-700" placeholder="050-..." />
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2 font-bold">מטרה</label>
+                            <select class="w-full bg-black border border-white/10 p-4 text-white focus:border-white focus:outline-none transition-all appearance-none cursor-pointer">
+                                <option>אני רוצה להתחרות</option>
+                                <option>כושר והגנה עצמית</option>
+                                <option>עבור הילד/ה שלי</option>
+                                <option>מתחיל מאפס</option>
+                            </select>
+                        </div>
+                        <button class="w-full bg-white text-black font-black uppercase tracking-widest py-4 hover:bg-gray-300 transition-all mt-6 shadow-lg hover:shadow-white/20">
+                            שלח פרטים
+                        </button>
+                    </form>
+                    <div class="absolute -bottom-4 -right-4 w-20 h-20 border-b-2 border-r-2 border-white/30 hidden md:block"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black py-12 border-t border-white/10 text-center">
+        <h2 class="text-3xl font-black mb-4">NXTGEN.</h2>
+        <div class="flex justify-center gap-6 mb-8 text-gray-400">
+             <a href="#" class="hover:text-white transition-colors">Facebook</a>
+             <a href="https://www.instagram.com/nxtgen.il/?hl=en" class="hover:text-white transition-colors">Instagram</a>
+             <a href="#" class="hover:text-white transition-colors">Waze</a>
+        </div>
+        <p class="text-gray-600 text-xs tracking-widest">© 2024 NXTGEN BJJ. ALL RIGHTS RESERVED.</p>
+        <p class="text-neutral-800 text-[10px] mt-2 uppercase">Ruppin 30, Kfar Saba | Israel</p>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-black/95', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg', 'py-3');
+                navbar.classList.remove('py-6');
+            } else {
+                navbar.classList.remove('bg-black/95', 'backdrop-blur-md', 'border-b', 'border-white/10', 'shadow-lg', 'py-3');
+                navbar.classList.add('py-6');
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuIcon = document.getElementById('menuIcon');
+        let isMenuOpen = false;
+
+        mobileMenuBtn.addEventListener('click', () => {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('opacity-0', 'invisible', 'pointer-events-none');
+                mobileMenu.classList.add('opacity-100', 'visible');
+                // Icon changes are handled by logic or simply replacing innerHTML if using lucide API, 
+                // but for simplicity we keep the menu icon or toggle class.
+                // Re-rendering icon:
+                mobileMenuBtn.innerHTML = '<i data-lucide="x"></i>';
+                lucide.createIcons();
+            } else {
+                mobileMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+                mobileMenu.classList.remove('opacity-100', 'visible');
+                mobileMenuBtn.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            }
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                isMenuOpen = false;
+                mobileMenu.classList.add('opacity-0', 'invisible', 'pointer-events-none');
+                mobileMenuBtn.innerHTML = '<i data-lucide="menu"></i>';
+                lucide.createIcons();
+            });
+        });
+
+        // Scroll Reveal Animation (Intersection Observer)
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Only animate once
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
